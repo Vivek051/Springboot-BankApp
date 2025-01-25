@@ -28,7 +28,7 @@ RUN mvn clean install -DskipTests=true
 FROM openjdk:17-alpine as deployer
 
 # Copy build from stage 1 (builder)
-COPY --from=builder /src/target/*.jar /src/target/bankapp.jar
+COPY --from=builder /src/target/bankapp-*.jar /src/target/bankapp.jar
 
 # Expose application port 
 EXPOSE 8080
